@@ -114,7 +114,7 @@ $(document).ready(function () {
             $("#messageValidation").css("display", "none");
             $("#messageValidationA").css("display", "inline-block");
 
-            $("#messageValidationTexteA").html(" <strong>Sorry</strong>! Il y a des champs manquants ou invalides");
+            $("#messageValidationTexteA").html(" <strong>Sorry</strong>! Il y a des champs manquants");
 
         }
     });
