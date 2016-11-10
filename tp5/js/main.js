@@ -12,6 +12,8 @@ function recherche(choix) {
         
         function showPosition(position) {
              searchCity("",1, position.coords.longitude,position.coords.latitude);
+               
+               
            }
     }
     }
@@ -24,10 +26,16 @@ function searchCity(_city,_choix,_lon,_lat) {
     
 
     if(_choix==0){
-        request.open('GET', ' http://api.openweathermap.org/data/2.5/weather?q='+_city+'&appid=e0c5699f772b215c86af11bd1b7a41d1', true);
-    
+        request.open('GET', ' https://demo.bilelz.fr/owmap/?q='+_city+'&appid=e0c5699f772b215c86af11bd1b7a41d1', true);
+        
+        
+ 
+ 
+
+
     }else {
-         request.open('GET', ' http://api.openweathermap.org/data/2.5/weather?lat='+_lat+'&lon='+_lon +'&appid=e0c5699f772b215c86af11bd1b7a41d1', true);
+         
+         request.open('GET', ' https://demo.bilelz.fr/owmap/?lat='+_lat+'&lon='+_lon +'&appid=e0c5699f772b215c86af11bd1b7a41d1', true);
          
     }
     request.onload = function () {
@@ -61,9 +69,14 @@ function searchCity(_city,_choix,_lon,_lat) {
                 $("#vent").text(vent+"m/s");  
                 $("#lon").text(lon); 
                 $("#lat").text(lat);
-                latitude=lat;
-                longiture=lon;
-                myFcontionLonLat(lon, lat);
+                
+                if(_choix==0){
+                      myFcontionLonLat(lon, lat);
+                }else {
+                     
+                    myFcontionLonLat(_lon,_lat);
+                }
+              
                 
            
 
